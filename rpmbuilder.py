@@ -136,7 +136,8 @@ rm -rf %{buildroot}
 
     options.specfile = specfile
 
-    print 'Creating spec file ... ', 
+    print 'Creating spec file ... ',
+    sys.stdout.flush()
     create_spec_file(specfile, spec.safe_substitute(options.__dict__))
     print 'Done'
 
@@ -148,10 +149,12 @@ rm -rf %{buildroot}
         sys.exit(3)
 
     print 'Creating tar file ... ',
+    sys.stdout.flush()
     create_tar_file(dest_dir) 
     print 'Done'
 
     print 'Buliding RPM ... ',
+    sys.stdout.flush()
     create_rpm(dest_dir + '.tar.gz')
     
 
