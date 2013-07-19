@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-''' Client/Subscriber part of IRC remote session notifier '''
+''' Client/Subscriber part of IRC remote session notifier
+	Dependencies: pyzmq
+	To install: apt-get install python-zmq or pip install pyzmq or easy_install pyzmq
+'''
+
 import zmq
 import time
 import subprocess

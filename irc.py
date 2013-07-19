@@ -6,6 +6,9 @@ in the form of a user who watches public messages and publish on a channel.
 We can write a simple client which subscribes to this channel and displays 
 popup/notification appropriately. A sample subscriber script is committed in the same repo,
 checkout the notifier.py script
+
+	Dependencies: pyzmq
+	To install: apt-get install python-zmq or pip install pyzmq or easy_install pyzmq
 '''
 
 
