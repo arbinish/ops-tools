@@ -1,0 +1,18 @@
+# Sample gnuplot file. Replace $output, $format and $file appropriately.
+
+set terminal svg size 1200,300 fsize 9
+set termoption enhanced
+set xdata time
+set output '$output.svg'
+set timefmt "%s"
+set format x "$format"
+set xtics format "$format"
+set grid
+set style line 1 lt 1 lw 3 lc 3 pt 7 ps 1.35
+set style line 2 lt 1 lw 3 lc 14 pt 7 ps 1.35
+set style line 3 lt 1 lw 3 lc 15 pt 7 ps 1.35
+set style line 4 lt 1 lw 3 lc 7 pt 7 ps 1.35
+plot "<(grep lhr1-emerald $file | sort -n -t, -k3,3 |tr ',' ' ' )" using 3:5 w linespoint ls 1 title 'lhr1', \\
+    "<(grep ua2-ruby $file | sort -n -t, -k3,3 | tr ',' ' ')" u 3:5 w linespoint ls 2 title 'ua2', \\
+    "<(grep hkg1-opal $file | sort -n -t, -k3,3 | tr ',' ' ')" u 3:5 w linespoint ls 3 title 'hkg1', \\
+    "<(grep uj1-topaz $file | sort -n -t, -k3,3 | tr ',' ' ')" u 3:5 w linespoint ls 4 title 'uj1'
